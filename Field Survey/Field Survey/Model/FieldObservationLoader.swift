@@ -1,5 +1,5 @@
 //
-//  FieldSurveyLoader.swift
+//  FieldObservationLoader.swift
 //  Field Survey
 //
 //  Created by Julia Wopata on 5/2/19.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-class FieldSurveyLoader {
+class FieldObservationLoader {
     
-    class func load(jsonFileName: String) -> FieldSet? {
-        var fieldSet: FieldSet?
+    class func load(jsonFileName: String) -> FieldObservationSet? {
+        var observationSet: FieldObservationSet?
         let jsonDecoder = JSONDecoder()
         jsonDecoder.dateDecodingStrategy = .iso8601
         
         if let jsonFileUrl = Bundle.main.url(forResource: jsonFileName, withExtension: ".json"),
             let jsonData = try? Data(contentsOf: jsonFileUrl) {
-            fieldSet = try? jsonDecoder.decode(FieldSet.self, from: jsonData)
+            observationSet = try? jsonDecoder.decode(FieldObservationSet.self, from: jsonData)
         }
         
-        return fieldSet
+        return observationSet
     }
 }
