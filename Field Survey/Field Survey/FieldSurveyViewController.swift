@@ -35,7 +35,7 @@ class FieldSurveyViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "fieldSurveyCell", for: indexPath)
-        
+        tableView.rowHeight = 60
         if let cell = cell as? FieldSurveyTableViewCell , let fieldSurvey = observationSet?.observations[indexPath.row] {
             cell.nameLabel.text = fieldSurvey.title
             cell.dateLabel.text = dateFormatter.string(from: fieldSurvey.date)
